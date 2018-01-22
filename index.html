@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru-be">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Treehouse Project 1: Random Quote Generator</title>
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+</head>
+<body>
+    <div class="content">
+        <!-- container for quotes -->
+        <main class="generator" id="generator"></main>
+
+        <!-- footer with copyright and small regards message from author ;) -->
+        <footer class="footer">
+            <div class="footer__copyright">
+                <span id="year"></span>
+                &copy;
+                <span>Max Eremin</span>
+            </div>
+            <div class="footer__regards">
+                <span>With <b class="footer__hearts">&hearts;</b> from Minsk</span>
+            </div>
+        </footer>
+    </div>
+    <script id="quote-template" type="text/x-my-awesome-template">
+    
+        <article class="generator__quote" id="[id]">
+            [tags]
+            <div class="quote__text">
+                <blockquote cite="[cite]" onclick="openLink('[cite]')" title="More info on Wikipedia (click)">
+                    [quote]
+                </blockquote>
+            </div>
+            <div class="quote__footer">
+                <div class="quote__author" id="author">
+                    <span>[author]</span>
+                    [citation]
+                </div>
+                [date]
+            </div>
+        </article>
+
+    </script>
+    <script src="./src/app.js"></script>
+</body>
+</html>

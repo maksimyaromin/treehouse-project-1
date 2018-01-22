@@ -1,0 +1,15 @@
+{
+  "name": "treehouse-project-1",
+  "version": "1.0.0",
+  "description": "Random Quote Genereator project after Unit 1 of full stack JS developer cource on treehouse",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "gulp"
+  },
+  "author": "Max Eremin",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-webserver": "^0.9.1"
+  }
+}

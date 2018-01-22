@@ -1,0 +1,21 @@
+@import "compass/css3/font-face";
+
+@include font-face(
+    "Piasniar",
+    font-files(
+        "Piasniar.woff",
+        "Piasniar.ttf"
+    )
+);
+
+@mixin poet-font($size, $line-height) {
+    font-family: Piasniar, $supported-fonts;
+    font-size: $size;
+    line-height: $line-height;
+}
+
+@mixin font($size, $line-height) {
+    font-family: $supported-fonts;
+    font-size: $size;
+    line-height: $line-height;
+}
