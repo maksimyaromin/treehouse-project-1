@@ -9,10 +9,16 @@
 </head>
 <body>
     <div class="content">
-        <!-- container for quotes -->
-        <main class="generator" id="generator"></main>
+        
+        <main class="generator">
+            <!-- Контейнер для цитат -->
+            <div id="generator"></div>
+            <button class="next-quote-button" id="btnNextQuote">
+                Next Quote
+            </button>
+        </main>
 
-        <!-- footer with copyright and small regards message from author ;) -->
+        <!-- Подвал сайта с информацией о копирайте и любовью из Минска -->
         <footer class="footer">
             <div class="footer__copyright">
                 <span id="year"></span>
@@ -24,6 +30,9 @@
             </div>
         </footer>
     </div>
+
+    <!-- Шаблон цитаты, используемый из JS. Очень простая
+         копия JS-шаблонизаторов, используемых повсеместно -->
     <script id="quote-template" type="text/x-my-awesome-template">
     
         <article class="generator__quote" id="[id]">

@@ -1,4 +1,4 @@
-@font-face { font-family: "Piasniar"; src: url('/./assets/fonts/Piasniar.woff?1516636672') format('woff'), url('/./assets/fonts/Piasniar.ttf?1426586642') format('truetype'); }
+@font-face { font-family: "Piasniar"; src: url('/./assets/fonts/Piasniar.woff?1516689391') format('woff'), url('/./assets/fonts/Piasniar.ttf?1516689391') format('truetype'); }
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video { margin: 0; padding: 0; border: 0; font: inherit; font-size: 100%; vertical-align: baseline; }
 
 html { line-height: 1; }
@@ -20,36 +20,40 @@ ul { list-style: none; }
 
 *, *:after, *:before { outline: 0; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
 
-a { text-decoration: none; color: rgba(0, 0, 0, 0.87); }
+a { text-decoration: none; color: rgba(255, 255, 255, 0.8); }
 
 html { height: 100% !important; font-family: Helvetica, sans-serif; font-size: 16px; line-height: 24px; }
 
 html, body { overflow-x: auto; overflow-y: auto; }
 
-body { min-height: 100%; color: rgba(0, 0, 0, 0.87); }
+body { min-height: 100%; color: rgba(255, 255, 255, 0.8); }
 
 .content { position: absolute; width: 100%; height: 100%; padding-bottom: 72px; }
-.content.color-1 { background-color: #E1BEE7; }
-.content.color-2 { background-color: #9FA8DA; }
-.content.color-3 { background-color: #B2DFDB; }
-.content.color-4 { background-color: #F0F4C3; }
-.content.color-5 { background-color: #FFFDE7; }
-.content.color-6 { background-color: #FFE0B2; }
-.content.color-7 { background-color: #FFCCBC; }
+.content.color-1 { background-color: #9C27B0; }
+.content.color-2 { background-color: #3F51B5; }
+.content.color-3 { background-color: #009688; }
+.content.color-4 { background-color: #607D8B; }
+.content.color-5 { background-color: #00838F; }
+.content.color-6 { background-color: #2E7D32; }
+.content.color-7 { background-color: #0091EA; }
 
 .footer { position: absolute; width: 100%; height: 72px; bottom: 0; left: 0; padding: 0 56px; }
-.footer .footer__copyright, .footer .footer__regards { width: 49%; display: inline-block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-family: Helvetica, sans-serif; font-size: 12px; line-height: 68px; color: rgba(0, 0, 0, 0.36); }
+.footer .footer__copyright, .footer .footer__regards { width: 49%; display: inline-block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-family: Helvetica, sans-serif; font-size: 12px; line-height: 68px; color: rgba(255, 255, 255, 0.6); }
 .footer .footer__copyright { text-align: left; }
 .footer .footer__regards { text-align: right; word-spacing: 2px; }
 .footer .footer__regards .footer__hearts { color: #f46f67; }
 
 .generator { position: relative; width: 100%; height: 100%; }
 
-.generator__quote { position: absolute; width: auto; min-width: 70%; height: auto; display: inline-block; top: 50%; left: 50%; -moz-transform: translate(-50%, -50%); -ms-transform: translate(-50%, -50%); -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%); }
+.generator__quote { position: absolute; width: auto; min-width: 760px; height: auto; display: inline-block; padding: 21px 28px; border: 4px solid white; border-radius: 4px; top: 50%; left: 50%; -moz-transform: translate(-50%, -50%); -ms-transform: translate(-50%, -50%); -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%); }
+@media (max-width: 760px) { .generator__quote { max-width: 70%; } }
 .generator__quote .quote__tags { width: 100%; margin: 14px 0; }
-.generator__quote .quote__tags .tag__list .tag__item { display: inline-block; margin-right: 7px; font-family: Helvetica, sans-serif; font-size: 12px; line-height: 22px; padding: 0 9px; text-transform: uppercase; border: 1px solid black; border-radius: 4px; letter-spacing: 1px; }
-.generator__quote .quote__text { position: relative; margin: 48px 0; color: rgba(0, 0, 0, 0.56); }
-.generator__quote .quote__text blockquote { text-align: justify; cursor: pointer; font-family: Piasniar, Helvetica, sans-serif; font-size: 16px; line-height: 28px; -moz-transition: color 250ms ease; -o-transition: color 250ms ease; -webkit-transition: color 250ms ease; transition: color 250ms ease; }
-.generator__quote .quote__text blockquote:hover { color: black; }
+.generator__quote .quote__tags .tag__list .tag__item { display: inline-block; margin-right: 7px; font-family: Helvetica, sans-serif; font-size: 12px; line-height: 22px; padding: 0 9px; text-transform: uppercase; border: 1px solid white; border-radius: 4px; letter-spacing: 1px; }
+.generator__quote .quote__text { position: relative; margin: 48px 0; color: white; }
+.generator__quote .quote__text blockquote { text-align: justify; cursor: pointer; font-family: Piasniar, Helvetica, sans-serif; font-size: 24px; line-height: 40px; -moz-transition: color 250ms ease; -o-transition: color 250ms ease; -webkit-transition: color 250ms ease; transition: color 250ms ease; }
+.generator__quote .quote__text blockquote:hover { color: #FFCDD2; }
 .generator__quote .quote__footer { text-align: right; }
 .generator__quote .quote__footer .quote__author, .generator__quote .quote__footer .quote__date { display: inline-block; font-family: Helvetica, sans-serif; font-size: 12px; line-height: 20px; }
+
+.next-quote-button { position: absolute; bottom: 100px; left: 50%; border: 2px solid white; background-color: transparent; border-radius: 4px; font-family: Helvetica, sans-serif; font-size: 16px; line-height: 36px; padding: 2px 16px 0; font-weight: 300; text-transform: uppercase; color: rgba(255, 255, 255, 0.8); cursor: pointer; -moz-transform: translateX(-50%); -ms-transform: translateX(-50%); -webkit-transform: translateX(-50%); transform: translateX(-50%); -moz-transition: color 250ms ease, border-color 250ms ease; -o-transition: color 250ms ease, border-color 250ms ease; -webkit-transition: color 250ms ease, border-color 250ms ease; transition: color 250ms ease, border-color 250ms ease; }
+.next-quote-button:hover { color: #FFCDD2; border-color: #FFCDD2; }

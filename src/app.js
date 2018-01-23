@@ -1,9 +1,19 @@
+/*
+    Блок объявления глобальных переменных.
+    Получение элементов DOM.
+*/
 var year = document.getElementById("year");
 var quteTemplate = document.getElementById("quote-template").innerText;
 var generator = document.getElementById("generator");
 var content = document.getElementsByClassName("content")[0];
+var nextButton = document.getElementById("btnNextQuote");
 var quoteIndex = -1;
 
+/*
+    Массив с цитатами. В массиве представлены цитаты знаменитых белорусских
+    людей. Каждая цитата имеет ссылку на статью о авторе на википедии.
+    Некоторые цитаты имеют тэги (для примера).
+*/
 var quotes = [
     {
         tags: [ "О поэзии", "Рыгор" ],
@@ -64,26 +74,51 @@ var quotes = [
     }
 ];
 
+/*
+    Функция открывает ссылку на википедию в новой вкладке. Она 
+    повешена на обработчик onClick блока с цитатой.
+*/
 function openLink(url) {
     var wikipedia = window.open(url, "_blank");
     wikipedia.focus();
 };
 
+/*
+    Функция генерирует случайное число от min (включая) 
+    до max (не включая)
+*/
 function generateRandomNumber(min, max) {
     return Math.floor(Math.random() * (max - min) + min);
 };
 
+/*
+    Функция получает случайную цитату из массива
+*/
 function getRandomQuote() {
+    // Сгенерировать случайный индекс от 0 до размера массива
     var index = generateRandomNumber(0, quotes.length);
+    /* Если полученный индекс равен индексу текущей цитаты,
+       то сгенерировать индекс ещё раз
+    */
     if(quoteIndex === index) {
         return getRandomQuote();
     }
+    // Изменить индекс текущей цитаты
     quoteIndex = index;
     return quotes[quoteIndex];
 };
 
+/*
+    Функция генерирования HTML разметки для цитаты
+*/
 function generateHTML(quote) {
+    // Копирование текста шаблона в новую переменную
     var quoteHTML = quteTemplate;
+
+    /*
+        Здесь и далее функцией replace заменяется место специально обозначенного
+        блока [block] на содержимое объекта цитаты
+    */
     quoteHTML = quoteHTML.replace(/\[id\]/i, "id" + quoteIndex);
     
     if(quote.tags) {
@@ -121,18 +156,42 @@ function generateHTML(quote) {
 
 };
 
+/*
+    Функция выводит цитату на экран
+*/
 function printQuote() {
+    // Получить цитату
     var quote = getRandomQuote();
+    // Сгенерировать HTML
     var quoteHTML = generateHTML(quote);
 
     generator.innerHTML = quoteHTML;
+    // Изменить цвет фона
     content.className = "content " + quote.class;
 };
 
-
+/*
+    Выполнить логику после загрузки окна
+*/
 window.onload = function() {
     year.innerText = (new Date()).getFullYear();
 
     printQuote();
-    setInterval(printQuote, 15000);
+    // Обновлять цитату каждые 15 секунд
+    var timer = setInterval(printQuote, 15000);
+
+
+    /* Обработчик нажатия на кнопку "Следующая цитата". Модно было бы конечно
+       как в старые-добрые времена обработать ещё и attachEvent, но я думаю
+       что в рамках данного проекта это не нужно, все равно вы почти наверняка
+       будете запускать этот пример в последнем Хроме
+    */
+    nextButton.addEventListener("click", function(e) {
+        e.preventDefault();
+        // Сбросить таймер
+        clearInterval(timer);
+        printQuote();
+        // Запустить обновление цитаты заново после печати новой цитаты
+        timer = setInterval(printQuote, 15000);
+    });
 };
