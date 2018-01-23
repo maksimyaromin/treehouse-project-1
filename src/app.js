@@ -1,6 +1,6 @@
 /*
-    Блок объявления глобальных переменных.
-    Получение элементов DOM.
+    Global variables declaration block.
+    DOM elements receiving.
 */
 var year = document.getElementById("year");
 var quteTemplate = document.getElementById("quote-template").innerText;
@@ -10,9 +10,9 @@ var nextButton = document.getElementById("btnNextQuote");
 var quoteIndex = -1;
 
 /*
-    Массив с цитатами. В массиве представлены цитаты знаменитых белорусских
-    людей. Каждая цитата имеет ссылку на статью о авторе на википедии.
-    Некоторые цитаты имеют тэги (для примера).
+    Quote array. An array contains quotes of famous Belorussian people. 
+	Each quote has a reference to a wiki article about the author.
+    Certain quotes have tags (as an example).
 */
 var quotes = [
     {
@@ -75,8 +75,8 @@ var quotes = [
 ];
 
 /*
-    Функция открывает ссылку на википедию в новой вкладке. Она 
-    повешена на обработчик onClick блока с цитатой.
+    Function opens wiki page reference in a new tab. 
+	It is executed by a handler onClick of the quote block.
 */
 function openLink(url) {
     var wikipedia = window.open(url, "_blank");
@@ -84,40 +84,40 @@ function openLink(url) {
 };
 
 /*
-    Функция генерирует случайное число от min (включая) 
-    до max (не включая)
+    Function generates random numbers from min (including) 
+    to max (excluding)
 */
 function generateRandomNumber(min, max) {
     return Math.floor(Math.random() * (max - min) + min);
 };
 
 /*
-    Функция получает случайную цитату из массива
+    Function receives  a random quote out of the array
 */
 function getRandomQuote() {
-    // Сгенерировать случайный индекс от 0 до размера массива
+    // Generate a random index from 0 to array size
     var index = generateRandomNumber(0, quotes.length);
-    /* Если полученный индекс равен индексу текущей цитаты,
-       то сгенерировать индекс ещё раз
+    /* Whether received index equals current quote index
+       an index should be regenerated
     */
     if(quoteIndex === index) {
         return getRandomQuote();
     }
-    // Изменить индекс текущей цитаты
+    // Change current index quote
     quoteIndex = index;
     return quotes[quoteIndex];
 };
 
 /*
-    Функция генерирования HTML разметки для цитаты
+    HTML markup generation function for a quote 
 */
 function generateHTML(quote) {
-    // Копирование текста шаблона в новую переменную
+    // Template text copying in a new variable
     var quoteHTML = quteTemplate;
 
     /*
-        Здесь и далее функцией replace заменяется место специально обозначенного
-        блока [block] на содержимое объекта цитаты
+        Here and after replace function replaces specified 
+		block [block] with quote object content 
     */
     quoteHTML = quoteHTML.replace(/\[id\]/i, "id" + quoteIndex);
     
@@ -157,41 +157,41 @@ function generateHTML(quote) {
 };
 
 /*
-    Функция выводит цитату на экран
+    Function displays a quote 
 */
 function printQuote() {
-    // Получить цитату
+    // Get a quote
     var quote = getRandomQuote();
-    // Сгенерировать HTML
+    // Generate HTML
     var quoteHTML = generateHTML(quote);
 
     generator.innerHTML = quoteHTML;
-    // Изменить цвет фона
+    // Change background color
     content.className = "content " + quote.class;
 };
 
 /*
-    Выполнить логику после загрузки окна
+    Execute logics after window onload 
 */
 window.onload = function() {
     year.innerText = (new Date()).getFullYear();
 
     printQuote();
-    // Обновлять цитату каждые 15 секунд
+    // Quote updates every 15 seconds
     var timer = setInterval(printQuote, 15000);
 
 
-    /* Обработчик нажатия на кнопку "Следующая цитата". Модно было бы конечно
-       как в старые-добрые времена обработать ещё и attachEvent, но я думаю
-       что в рамках данного проекта это не нужно, все равно вы почти наверняка
-       будете запускать этот пример в последнем Хроме
+    /* Button "Next quote" click handler. 
+       For old time's sake it could probably be handled also by attachEvent.  
+       But I consider it is of less importance under that project as far as you most certainly  
+       would run this work in Chrome recent version.
     */
     nextButton.addEventListener("click", function(e) {
         e.preventDefault();
-        // Сбросить таймер
+        // Clear timer
         clearInterval(timer);
         printQuote();
-        // Запустить обновление цитаты заново после печати новой цитаты
+        // Restart quote update after new quote print
         timer = setInterval(printQuote, 15000);
     });
 };

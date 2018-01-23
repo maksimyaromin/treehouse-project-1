@@ -7,9 +7,13 @@
     "start": "gulp"
   },
   "author": "Max Eremin",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-webserver": "^0.9.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ermaxnet/threehouse-project-1.git"
   }
 }
